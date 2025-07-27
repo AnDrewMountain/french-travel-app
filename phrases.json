@@ -1,0 +1,38 @@
+{
+  "greetings": [
+    {
+      "english": "Hello",
+      "french": "Bonjour",
+      "phonetic": "bohn-zhoor"
+    },
+    {
+      "english": "Goodbye",
+      "french": "Au revoir",
+      "phonetic": "oh ruh-vwar"
+    }
+  ],
+  "food": [
+    {
+      "english": "I am hungry",
+      "french": "J'ai faim",
+      "phonetic": "zhay fah(n)"
+    },
+    {
+      "english": "A table for two, please",
+      "french": "Une table pour deux, s'il vous plaît",
+      "phonetic": "ewn tah-bluh poor duh seel voo pleh"
+    }
+  ],
+  "travel": [
+    {
+      "english": "Where is the train station?",
+      "french": "Où est la gare ?",
+      "phonetic": "oo eh lah gahr"
+    },
+    {
+      "english": "I need a taxi",
+      "french": "J'ai besoin d'un taxi",
+      "phonetic": "zhay buh-zwan dun taxi"
+    }
+  ]
+}
