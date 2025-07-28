@@ -9,3 +9,47 @@ buttons.forEach(btn =>{
         });//This gives a simple-tab-switching system - one section visible at a time.
     });
 });
+
+//Add the phrases.json file functions!! (more than these two lines)
+let phrasesData = {};
+let currentCategory = "greetings";
+
+//Load the JSON data
+fetch('phrases.json').then(res => res.json()).then(data=>{
+    phrasesData = data;
+    renderCategoryButtons();
+    renderPhrases(currentCategory);
+})
+
+//Render buttons for each category
+function renderCategoryButtons(){
+    const container = document.getElementById('category-buttons');
+    container.innerHTML = '';
+    Object.keys(phrasesData).forEach(category => {
+        const btn = document.createElement('button');
+        btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+        btn.className = 'bg-blue-100 hover:bg-blue-200 px-3 py-1 rounded';
+        btn.addEventListener('click', ()=>{
+            currentCategory = category;
+            renderPhrases(category);
+        });
+        container.appendChild(btn);
+    })
+}
+
+//Render phrases for the selected category
+function renderPhrases(category) {
+    const list = document.getElementById('phrase-list');
+    list.innerHTML = '';
+    const phrases = phrasesData[category];
+    phrases.forEach(phrase => {
+        const card = document.createElement('div');
+        card.className = 'border p-3 rounded shadow-sm bg-white';
+        card.innerHTML = `
+            <p><strong>EN:<strong> ${phrase.english}</p>
+            <p><strong>FR:<strong> ${phrase.french}</p>
+            ${phrase.phonetic ? `<p><strong>Phonetic:</strong> ${phrase.phonetic}</p>` : ''}
+        `;
+        list.appendChild(card);
+    })
+}
