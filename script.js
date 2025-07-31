@@ -53,3 +53,17 @@ function renderPhrases(category) {
         list.appendChild(card);
     })
 }
+
+//Currency section
+const convertBtn = document.getElementById('convert-btn');
+const amountInput = document.getElementById('amount');
+const fromCurrency = document.getElementById('from-currency');
+const toCurrency = document.getElementById('to-currency');
+const resultDisplay = document.getElementById('result');
+
+//This is the function ran when the button is clicked
+convertBtn.addEventListener('click', () => {
+    const amount = parseFloat(amountInput.value);//converts string into a number
+    const from = fromCurrency.value;//Gets the selected value from first dropdown
+    const to = toCurrency.value;//Grabs the value from the second dropdown
+})
