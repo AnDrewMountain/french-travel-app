@@ -62,8 +62,24 @@ const toCurrency = document.getElementById('to-currency');
 const resultDisplay = document.getElementById('result');
 
 //This is the function ran when the button is clicked
-convertBtn.addEventListener('click', () => {
-    const amount = parseFloat(amountInput.value);//converts string into a number
-    const from = fromCurrency.value;//Gets the selected value from first dropdown
-    const to = toCurrency.value;//Grabs the value from the second dropdown
-})
+convertBtn.addEventListener("click", () => {
+  const amount = parseFloat(amountInput.value); //converts string into a number
+  const from = fromCurrency.value; //Gets the selected value from first dropdown
+  const to = toCurrency.value; //Grabs the value from the second dropdown
+
+  //Now we add the API URL and fetch the exchange rate
+  const apiUrl = `https://api.exchangerate.host/latest?base=${from}&symbols=${to}`;
+
+  fetch(apiUrl)
+    .then((res) => res.json())
+    .then((data) => {
+    console.log("API Response:", data);
+      const rate = data.rates[to];
+      const converted = amount * rate;
+      resultDisplay.textContent = `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
+    })
+    .catch((error) => {
+      resultDisplay.textContent = "Something went wrong with the conversion.";
+      console.error(error);
+    });
+});
