@@ -67,16 +67,18 @@ convertBtn.addEventListener('click', () => {
   const from = fromCurrency.value;
   const to = toCurrency.value;
 
-  const apiUrl = `https://api.exchangerate.host/convert?from=${from}&to=${to}&amount=${amount}`;
+  const apiUrl = `https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`;
   console.log("Using URL:", apiUrl);
 
   fetch(apiUrl)
     .then(res => res.json())
     .then(data => {
-      console.log("API Response:", data);
-      const converted = data.result;
-      resultDisplay.textContent = `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
-    })
+  console.log("API Response:", data);
+
+  const converted = data.rates[to];
+  resultDisplay.textContent = `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
+})
+
     .catch(error => {
       resultDisplay.textContent = "Something went wrong with the conversion.";
       console.error(error);
