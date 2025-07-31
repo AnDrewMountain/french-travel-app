@@ -24,7 +24,30 @@
                 <div id="category-buttons" class="flex gap-2 flex-wrap mb-4"></div>
                 <div id="phrase-list" class="space-y-2"></div>
             </section>
-            <section id="currency" class="tab-section">Currency converter here</section>
+            <!--<section id="currency" class="tab-section">Currency converter here</section>-->
+            <section id="currency" class="tab-section hidden">
+                <h2 class="text-xl font-bold mb-4">Currency Converter</h2>
+                <div class="space-y-4 max-w-md">
+                <input type="number" id="amount" class="w-full border p-2 rounded" placeholder="Enter amount" />
+
+                <div class="flex gap-2">
+                <select id="from-currency" class="flex-1 border p-2 rounded">
+                <option value="USD">USD</option>
+                 <option value="EUR">EUR</option>
+                </select>
+
+                <span class="self-center">→</span>
+
+                <select id="to-currency" class="flex-1 border p-2 rounded">
+                 <option value="EUR">EUR</option>
+                 <option value="USD">USD</option>
+                </select>
+                </div>
+                <button id="convert-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Convert</button>
+                    <div id="result" class="text-lg font-semibold text-green-600"></div>
+                </div>
+            </section>
+
             <section id="weather" class="tab-section">Weather Preview in this section</section>
             <section id="emergency" class="tab-section">Emergency numbers to call here</section>
             <section id="learn" class="tab-section">Learn some French here</section>
