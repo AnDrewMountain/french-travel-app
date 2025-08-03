@@ -106,3 +106,14 @@ function speak(text){
     const utterance = new SpeechSynthesisUtterance(text);
     speechSynthesis.speak(utterance);
 }
+
+//copy to clipboard text
+function copyText(text){
+    navigator.clipboard.writeText(text).then(() =>{
+        alert('Copied!');
+    })
+    .catch(err => {
+        alert('Failed to copy');
+        console.error(err);
+    })
+}
