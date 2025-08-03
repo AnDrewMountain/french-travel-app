@@ -84,3 +84,19 @@ convertBtn.addEventListener('click', () => {
       console.error(error);
     });
 });
+
+//Emergency Section Code
+document.querySelectorAll('.tab-btn').forEach(button => {
+    button.addEventListener('click', ()=>{
+        const target = button.getAttribute('data-tab');
+
+        document.querySelectorAll('.tab-section').forEach(section =>{
+            section.classList.add('hidden');
+        });
+
+        const activeSection = document.getElementById(target);
+        if (activeSection){
+            activeSection.classList.remove('hidden');
+        }
+    })
+})
