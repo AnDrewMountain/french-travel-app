@@ -1,60 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-        <title>French Travel App</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-white text-gray-900 p-4 font-sans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Travel App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-900 p-4 font-sans">
+    <nav class="flex gap-2 mb-4 flex-wrap justify-center">
+      <button class="tab-btn" data-tab="phrasebook">Phrasebook</button>
+      <button class="tab-btn" data-tab="currency">Currency</button>
+      <button class="tab-btn" data-tab="weather">Weather</button>
+      <button class="tab-btn" data-tab="emergency">Emergency</button>
+      <button class="tab-btn" data-tab="learn">Learn</button>
+    </nav>
 
-        <nav class="flex gap-2 mb-4 flex-wrap justify-center">
-            <button class="tab-btn" data-tab="phrasebook">Phrasebook</button>
-            <button class="tab-btn" data-tab="currency">Currency</button>
-            <button class="tab-btn" data-tab="weather">Weather</button>
-            <button class="tab-btn" data-tab="emergency">Emergency</button>
-            <button class="tab-btn" data-tab="learn">Learn</button>
-        </nav>
+    <main class="space-y-6">
+      <!--<section id="phrasebook" class="tab-section">Phrasebook content goes here</section>-->
+      <section id="phrasebook" class="tab-section">
+        <h2 class="text-xl font-bold mb-2">Phrasebook</h2>
+        <div id="category-buttons" class="flex gap-2 flex-wrap mb-4"></div>
+        <div id="phrase-list" class="space-y-2"></div>
+      </section>
+      <!--<section id="currency" class="tab-section">Currency converter here</section>-->
+      <section id="currency" class="tab-section hidden">
+        <h2 class="text-xl font-bold mb-4">Currency Converter</h2>
+        <div class="space-y-4 max-w-md">
+          <input
+            type="number"
+            id="amount"
+            class="w-full border p-2 rounded"
+            placeholder="Enter amount"
+          />
 
+          <div class="flex gap-2">
+            <select id="from-currency" class="flex-1 border p-2 rounded">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
 
-        <main class="space-y-6">
-            <!--<section id="phrasebook" class="tab-section">Phrasebook content goes here</section>-->
-            <section id="phrasebook" class="tab-section">
-                <h2 class="text-xl font-bold mb-2">Phrasebook</h2>
-                <div id="category-buttons" class="flex gap-2 flex-wrap mb-4"></div>
-                <div id="phrase-list" class="space-y-2"></div>
-            </section>
-            <!--<section id="currency" class="tab-section">Currency converter here</section>-->
-            <section id="currency" class="tab-section hidden">
-                <h2 class="text-xl font-bold mb-4">Currency Converter</h2>
-                <div class="space-y-4 max-w-md">
-                <input type="number" id="amount" class="w-full border p-2 rounded" placeholder="Enter amount" />
+            <span class="self-center">→</span>
 
-                <div class="flex gap-2">
-                <select id="from-currency" class="flex-1 border p-2 rounded">
-                <option value="USD">USD</option>
-                 <option value="EUR">EUR</option>
-                </select>
+            <select id="to-currency" class="flex-1 border p-2 rounded">
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          <button
+            id="convert-btn"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Convert
+          </button>
+          <div id="result" class="text-lg font-semibold text-green-600"></div>
+        </div>
+      </section>
 
-                <span class="self-center">→</span>
+      <section id="weather" class="tab-section">
+        Weather Preview in this section
+      </section>
 
-                <select id="to-currency" class="flex-1 border p-2 rounded">
-                 <option value="EUR">EUR</option>
-                 <option value="USD">USD</option>
-                </select>
-                </div>
-                <button id="convert-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Convert</button>
-                    <div id="result" class="text-lg font-semibold text-green-600"></div>
-                </div>
-            </section>
+      <!--<section id="emergency" class="tab-section">Emergency numbers to call here</section>-->
+      <section id="emergency" class="tab-section hidden p-4">
+        <h2 class="text-2xl font-bold text-red-600 mb-4">🚨 Emergency Help</h2>
 
-            <section id="weather" class="tab-section">Weather Preview in this section</section>
-            <section id="emergency" class="tab-section">Emergency numbers to call here</section>
-            <section id="learn" class="tab-section">Learn some French here</section>
-        </main>
+        <!-- Emergency Phrases -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">Key Phrases</h3>
+          <ul class="space-y-2">
+            <li><strong>Help!</strong> — À l’aide !</li>
+            <li>
+              <strong>I need a doctor.</strong> — J’ai besoin d’un médecin.
+            </li>
+            <li><strong>Call the police!</strong> — Appelez la police !</li>
+            <li><strong>I’m hurt.</strong> — Je suis blessé(e).</li>
+            
+          </ul>
+        </div>
 
-        <script src="script.js"></script>
-    </body>
+        <!-- Emergency Contacts -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Emergency Contacts</h3>
+          <ul class="space-y-1">
+            <li><strong>112</strong> — General EU Emergency</li>
+            <li><strong>17</strong> — Police</li>
+            <li><strong>15</strong> — Ambulance</li>
+            <li><strong>18</strong> — Fire Brigade</li>
+            <li><strong>+33 1 43 12 22 22</strong> — US Embassy (Paris)</li>
+          </ul>
+        </div>
+      </section>
 
+      <section id="learn" class="tab-section">Learn some French here</section>
+    </main>
 
+    <script src="script.js"></script>
+  </body>
 </html>
