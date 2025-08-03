@@ -110,10 +110,20 @@ function speak(text){
 //copy to clipboard text
 function copyText(text){
     navigator.clipboard.writeText(text).then(() =>{
-        alert('Copied!');
+        showToast('Copied!');
     })
     .catch(err => {
-        alert('Failed to copy');
+        showToast('Failed to copy');
         console.error(err);
     })
+}
+
+function showToast(message) {
+  const toast = document.getElementById('copy-toast');
+  toast.textContent = message;
+  toast.classList.remove('hidden');
+
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000); // Hide after 3 seconds
 }
