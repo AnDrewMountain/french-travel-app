@@ -56,8 +56,44 @@
         </div>
       </section>
 
-      <section id="weather" class="tab-section">
-        Weather Preview in this section
+      <!-- <section id="weather" class="tab-section">Weather Preview in this section</section> -->
+
+      <section
+        id="weather"
+        class="w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4 mt-6 mx-auto"
+      >
+        <h2 class="text-2xl font-bold text-center text-gray-800">
+          Weather (Météo)
+        </h2>
+
+        <!-- Input and Button -->
+        <div class="flex items-center space-x-2">
+          <input
+            id="cityInput"
+            type="text"
+            placeholder="Enter city (e.g. Paris)"
+            class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+          <button
+            id="getWeatherBtn"
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+          >
+            Get Weather
+          </button>
+        </div>
+
+        <!-- Weather Result -->
+        <div id="weatherResult" class="text-center mt-4 hidden">
+          <p id="weatherCity" class="text-lg font-semibold"></p>
+          <p id="weatherTemp" class="text-4xl font-bold text-blue-600"></p>
+          <p id="weatherDesc" class="italic text-gray-600"></p>
+          <!-- <img
+            id="weatherIcon"
+            class="mx-auto w-20 h-20 mt-2"
+            src=""
+            alt="Weather icon"
+          /> -->
+        </div>
       </section>
 
       <!--<section id="emergency" class="tab-section">Emergency numbers to call here</section>-->
