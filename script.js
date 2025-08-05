@@ -127,3 +127,66 @@ function showToast(message) {
     toast.classList.add('hidden');
   }, 3000); // Hide after 3 seconds
 }
+//Weather Section Start Code
+let apiKey = "YOUR_API_KEY_HERE"; // Default fallback
+
+try {
+  const config = await import('./config.js');
+  apiKey = config.apiKey;
+} catch (error) {
+  alert("Missing config.js or API key. Please follow setup instructions in the README.");
+}
+
+// Weather Section Elements
+const cityInput = document.getElementById('cityInput');
+const getWeatherBtn = document.getElementById('getWeatherBtn');
+const weatherResult = document.getElementById('weatherResult');
+const weatherCity = document.getElementById('weatherCity');
+const weatherTemp = document.getElementById('weatherTemp');
+const weatherDesc = document.getElementById('weatherDesc');
+
+// Get Weather on Button Click
+getWeatherBtn.addEventListener('click', () => {
+  const city = cityInput.value.trim();
+  if (city) {
+    fetchWeather(city);
+  }
+});
+
+// Fetch Weather from OpenWeatherMap
+function fetchWeather(city) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('City not found');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayWeather(data);
+    })
+    .catch(error => {
+      weatherResult.classList.remove('hidden');
+      weatherCity.textContent = '';
+      weatherTemp.textContent = '';
+      weatherDesc.textContent = 'Error: ' + error.message;
+    });
+}
+
+// Display Results
+function displayWeather(data) {
+  const temp = Math.round(data.main.temp);
+  const description = data.weather[0].description;
+
+  weatherCity.textContent = data.name;
+  weatherTemp.textContent = `${temp}°C`;
+  weatherDesc.textContent = capitalize(description);
+  weatherResult.classList.remove('hidden');
+}
+
+// Capitalize first letter
+function capitalize(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
