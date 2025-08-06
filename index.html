@@ -61,7 +61,7 @@
 
       <section
         id="weather"
-        class=" tab-section hidden w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4 mt-6 mx-auto"
+        class="tab-section hidden w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4 mt-6 mx-auto"
       >
         <h2 class="text-2xl font-bold text-center text-gray-800">
           Weather (Météo)
@@ -171,7 +171,59 @@
         </div>
       </section>
 
-      <section id="learn" class="tab-section">Learn some French here</section>
+      <section id="learn" class="p-4">
+        <h2 class="text-2xl font-bold mb-2 text-center">📘 Learn French</h2>
+        <p class="text-gray-600 text-sm mb-4 text-center">
+          Build your confidence with quick lessons in vocabulary, grammar, and
+          pronunciation.
+        </p>
+
+        <div class="space-y-4">
+          <!-- Vocab Card -->
+          <div class="bg-white rounded-2xl shadow p-4">
+            <h3 class="text-lg font-semibold mb-2">Vocabulary: Food</h3>
+            <ul class="space-y-1 text-gray-700">
+              <li>
+                <span class="font-medium">Apple</span> —
+                <span class="italic">la pomme</span>
+              </li>
+              <li>
+                <span class="font-medium">Bread</span> —
+                <span class="italic">le pain</span>
+              </li>
+              <li>
+                <span class="font-medium">Water</span> —
+                <span class="italic">l'eau</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Grammar Tip -->
+          <div class="bg-white rounded-2xl shadow p-4">
+            <h3 class="text-lg font-semibold mb-2">
+              🔤 Grammar: Basic Sentences
+            </h3>
+            <p class="text-gray-700"><strong>Je suis</strong> means "I am."</p>
+            <p class="text-gray-700">
+              Example: <em>Je suis américain</em> — I am American
+            </p>
+          </div>
+
+          <!-- Pronunciation Card -->
+          <div class="bg-white rounded-2xl shadow p-4">
+            <h3 class="text-lg font-semibold mb-2">
+              🎧 Pronunciation: Greetings
+            </h3>
+            <p class="text-gray-700 mb-2">Tap to hear:</p>
+            <button
+              onclick="speak('Bonjour')"
+              class="bg-blue-500 text-white px-3 py-1 rounded"
+            >
+              Bonjour
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
