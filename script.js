@@ -190,3 +190,24 @@ function displayWeather(data) {
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
+
+//Learn Section
+
+// --- Tab routing (adjust selectors if yours differ)
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('[data-tab-target]');
+  if (!tab) return;
+
+  const targetId = tab.dataset.tabTarget; // e.g. "learn"
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.add('hidden'));
+  const target = document.getElementById(targetId);
+  if (target) target.classList.remove('hidden');
+
+  if (targetId === 'learn') initLearnSection();
+});
+
+// Boot if Learn is visible on first load
+document.addEventListener('DOMContentLoaded', () => {
+  const learn = document.getElementById('learn');
+  if (learn && !learn.classList.contains('hidden')) initLearnSection();
+});
