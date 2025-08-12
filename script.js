@@ -211,3 +211,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const learn = document.getElementById('learn');
   if (learn && !learn.classList.contains('hidden')) initLearnSection();
 });
+
+// --- Learn data seed
+const learnData = {
+  vocab: [
+    { en: 'Apple', fr: 'la pomme' },
+    { en: 'Bread', fr: 'le pain' },
+    { en: 'Water', fr: "l'eau" },
+    { en: 'Coffee', fr: 'le café' },
+    { en: 'Tea', fr: 'le thé' },
+  ],
+  grammar: [
+    {
+      title: 'Basic Sentences',
+      tipHtml: '<strong>Je suis</strong> = “I am”',
+      examples: ['Je suis américain — I am American', 'Je suis fatigué — I am tired']
+    },
+    {
+      title: 'Politeness',
+      tipHtml: '<strong>S’il vous plaît</strong> = “please”',
+      examples: ['Un café, s’il vous plaît — A coffee, please']
+    }
+  ],
+  pronunciation: ['Bonjour', 'Bonsoir', 'Merci', 'S’il vous plaît', 'Pardon']
+};
