@@ -235,3 +235,32 @@ const learnData = {
   ],
   pronunciation: ['Bonjour', 'Bonsoir', 'Merci', 'S’il vous plaît', 'Pardon']
 };
+
+// --- Speech (safe)
+function speak(text) {
+  try {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = 'fr-FR';
+    window.speechSynthesis.cancel(); // stop any current speech
+    window.speechSynthesis.speak(msg);
+  } catch (e) {
+    console.warn('Speech not available:', e);
+  }
+}
+
+// --- Simple store for progress
+const LS = {
+  get(key, fallback) {
+    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
+  },
+  set(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch {}
+  }
+};
+
+// --- Tiny helper
+const el = (html) => {
+  const t = document.createElement('template');
+  t.innerHTML = html.trim();
+  return t.content.firstElementChild;
+};
